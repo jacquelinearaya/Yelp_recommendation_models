@@ -1,7 +1,7 @@
 # Personalization, Fall 2019, Final Project
 ## Contributors
-### Jacqueline Araya - ja3076@columbia.edu - ja3076
-### Oscar Jasklowski - ovj2101@columbia.edu - ovj2101
+### Jacqueline Araya - ja3076@columbia.edu
+### Oscar Jasklowski - ovj2101@columbia.edu - Github: ojdajuiceman
 
 <br>
 
