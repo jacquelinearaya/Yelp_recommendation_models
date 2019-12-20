@@ -12,7 +12,6 @@
     1. Data Pipeline - Code for preparing raw data, analyzing various user- and business-attributes, and code for comparing the performance of all models side-by-side.
     2. Recommendation Models - Implementations (many from scratch) of all our recommendation algorithms. This is divided into "Baseline Models" (simpler models from early in the semester, intended to serve as benchmarks) and "Proposed Models" (more sophisticated models based on content presented later in the semester).
 
-<br>
 
 ## Background and Project Objective
 
@@ -67,7 +66,6 @@ Users:
 - High-activity: 20+ reviews
 - Distribution: 
 ![alt text](https://github.com/ds-personalization/project-2-final-ja-oj/blob/master/Images/User%20Activity%20distribution.png)
-
 
 Businesses: 
 - Low-popularity: 1-10 reviews
