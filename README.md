@@ -175,6 +175,8 @@ The obvious next steps are to address our implementation problems, starting with
 
 ## Test and Performance of Models
 
+### Global Performance:
+
 ![alt text](https://github.com/ds-personalization/project-2-final-ja-oj/blob/master/Images/Table1.png)
 
 Several patterns become apparent in the table above:
@@ -189,11 +191,17 @@ Several patterns become apparent in the table above:
     
 ![alt text](https://github.com/ds-personalization/project-2-final-ja-oj/blob/master/Images/DL%20Results.png)
 
+### Model performance as a function of user-activity and business-popularity:
+
+#### By user-activity:
 ![alt text](https://github.com/ds-personalization/project-2-final-ja-oj/blob/master/Images/Table2a.png)
+
+#### By business-popularity:
 ![alt text](https://github.com/ds-personalization/project-2-final-ja-oj/blob/master/Images/Table2b.png)
 
-## TODO: Comment these results
+##### (TODO) Comment these results
 
+## Summary (TODO)
 
 ## Appendix: Summary of iPython Notebooks
 1.  Data extraction and cleaning
