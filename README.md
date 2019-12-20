@@ -197,7 +197,11 @@ Several patterns become apparent in the table above:
 #### By business-popularity:
 ![alt text](https://github.com/ds-personalization/project-2-final-ja-oj/blob/master/Images/Table2b.png)
 
-##### (TODO) Comment these results
+**Key Question:** Which model has the best performance for low-activity users and for low-popularity businesses? Recall, this was our objective for the project. 
+
+Considering that deep learning models are able to learn in a nonlinear way relationships in the data, it may outperform other models in terms of coverage because it doesn’t face problems like cold-start for business that are present in the data. It’s not a surprise that by adding extra information (business categories) the model improves, and we can clearly see that low activity business take advantage of this, because they can consider how other, more popular business with similar categories predict. 
+
+The same analysis can be thought for users with low popularity, the model is able to make better predictions for them because it uses the relationships for other similar users.
 
 ## General Conclusions and Reflection
 
