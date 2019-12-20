@@ -187,5 +187,21 @@ Several patterns become apparent in the table above:
     1.  Results: Encouragingly, our Deep Learning model performs the best on this dimension. Again, in this context, “coverage” captures the % of predictions for which the predicted rank of the business (for a given user, relative to other businesses) was within 0.25 of the actual rank of the business. 
     2.  Analysis: The model that perform best in Coverage is the model of classification approach (i.e. predict a “label” for each review which can take values 1-5) trained with the business and user features plus business categories. Because we treated this as a classification problem, we likely benefited from the fact that our predictions were integer values, and thus when we perform a dense-rank function in computing ranking, our ranking function frequently assigned the same rank to a prediction as the actual rating (which is also an integer value). In fact, we can see in histograms of predictions that this model tend to bias up the predictions values:
     
+![alt text](https://github.com/ds-personalization/project-2-final-ja-oj/blob/master/Images/DL%20Results.png)
+
+![alt text](https://github.com/ds-personalization/project-2-final-ja-oj/blob/master/Images/Table2a.png)
+![alt text](https://github.com/ds-personalization/project-2-final-ja-oj/blob/master/Images/Table2b.png)
+
+## TODO: Comment these results
 
 
+## Appendix: Summary of iPython Notebooks
+1.  Data extraction and cleaning
+2.  Data exploration
+3.  Models
+    1.  Bias Model (baseline)
+    2.  Collaborative Filtering (baseline)
+    3.  Matrix Factorization (baseline)
+    4.  Deep Learning
+    5.  Content-Based
+4.  Model Evaluation Pipeline
