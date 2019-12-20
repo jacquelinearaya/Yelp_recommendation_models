@@ -8,8 +8,9 @@
 ## How to review the contents of this repository:
 1. We recommend starting with this README file. Here, we present our business objectives, outline our technical approach, and summarize our results for all models.
 2. Next, we encourage the reader to review the attached iPython notebooks. They are organized as follows:
-  1. Data Pipeline - Code for preparing raw data, analyzing various user- and business-attributes, and code for comparing the performance of all models side-by-side.
-  2. Recommendation Models - Implementations (many from scratch) of all our recommendation algorithms. This is divided into "Baseline Models" (simpler models from early in the semester, intended to serve as benchmarks) and "Proposed Models" (more sophisticated models based on content presented later in the semester).
+
+    1. Data Pipeline - Code for preparing raw data, analyzing various user- and business-attributes, and code for comparing the performance of all models side-by-side.
+    2. Recommendation Models - Implementations (many from scratch) of all our recommendation algorithms. This is divided into "Baseline Models" (simpler models from early in the semester, intended to serve as benchmarks) and "Proposed Models" (more sophisticated models based on content presented later in the semester).
 
 <br>
 
