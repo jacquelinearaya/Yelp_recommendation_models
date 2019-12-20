@@ -118,6 +118,32 @@ In this project, we aim to outperform our baseline models by trying two new tech
 
 ### Deep Learning Models
 
+By using deep learning models, we hope we can leverage the ability of these models to learn and capture non-linear relationship between the different features of our data, learning and updating weights of these relationships using methods such as gradient descent. Specifically, we propose two types of deep learning models using two types of datasets (different features) from the Yelp dataset. 
+
+We used the same architecture for both models, a sequential model mainly composed of dense layer (fully connected neurons layers) and use the mean squared error as the function to optimize the loss of the model:
+
+- layers.Dense(128, activation='relu'),
+- layers.Dense(128, activation='tanh'),
+- layers.Dense(64, activation='relu'),
+- layers.Dense(5, activation='softmax')
+
+On top of these layers we provide our features of data as embeddings vectors as input of the model. We track the accuracy and root mean squared error for the training and validation sets while the model trains. 
+
+1.  **Deep Learning Classification approach:** we propose a model in which every rating can be seen as a class (from 1 to 5) and so the model learns relationships from the different features of data and predict the probability of each observation to belong to each class. For this type of model to work, we encode each rating as a one-hot vector, so we can have a one-hot vector of probabilities using the activation function ‘softmax’ for the last layer of the model, which give us a vector of probabilities in the space 0-1. 
+
+2.  **Deep Learning Continuous prediction approach:** we propose a model in which every rating is considered a continuous (standardized) value and the model learns relationships between the features such that it can predict a single continuous value for rating. For this model to work, we set the last layer of the model architecture to be a dense layer with a single neuron which corresponds to the predicted rating.
+
+We tried both models for two different datasets:
+1.  Business and users features: city, state, is open, and popularity of a business and the activity of a user. 
+    - Number of cities:  1142
+    - Number of states:  29
+    - Business is open: [1 0]
+    - Business popularity:  ['high' 'medium' 'low']
+    - User activity:  ['medium' 'low' 'high']
+    - We encoded these variables as categorical features resulting in embeddings for the model.
+
+2.  Business and users features + Business categories: this is the same dataset above but we added the ‘categories’ feature of each business, which we encoded as a categorical embedding using the vocabulary from all business categories. ['restaurants', 'food', 'bars', 'american', 'services', 'nightlife', 'new', 'traditional', 'breakfast' …]
+
 
 ### Content-Based Model
 
