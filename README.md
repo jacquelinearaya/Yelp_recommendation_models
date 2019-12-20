@@ -199,7 +199,11 @@ Several patterns become apparent in the table above:
 
 ##### (TODO) Comment these results
 
-## Summary (TODO)
+## General Conclusions and Reflection
+
+Our ultimate goal was to identify which recommendation techniques work best for different subsets of the data. In particular, we wanted to understand which models work well for low-activity users and low-popularity businesses; we believe that if we can offer a good product for these users, they are likely to convert into active users.
+
+Encouragingly, our deep learning model had the best performance with respect to coverage for low-activity users. Although we still need to optimize this model by tuning hyper-parameters, we can confidently say that this will at least outperform the baseline. As a result, we can propose a "switching" technique, where we use a deep-learning model early in a user's lifecycle, and as they become a more active user on the platform, we can switch to collaborative filtering techniques, which are superior for active users.
 
 ## Appendix: Summary of iPython Notebooks
 1.  Data extraction and cleaning
