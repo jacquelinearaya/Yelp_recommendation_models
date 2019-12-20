@@ -45,3 +45,107 @@ Deep-learning-based recommendation models
 Content-based recommendation models
 
 ## Data Exploration
+
+**Data Completeness:**
+
+The dataset is remarkably complete! Only the following features had a significant number of missing records:
+Businesses:
+- Attributes: 15% missing
+- Hours: 23% missing
+- Address: 4% missing
+
+Users and Reviews: No missing data!
+
+**Distribution of users by activity and businesses by popularity:**
+
+We segmented both users and businesses into three categories.
+
+Users:
+- Exclude = 1-4 reviews 
+- Low-activity definition: 5-10 reviews
+- Medium-activity: 11-20 reviews
+- High-activity: 20+ reviews
+- Distribution:
+<IMAGE>
+
+
+Businesses: 
+- Low-popularity: 1-10 reviews
+- Medium-popularity: 10-30 reviews
+- High-popularity: 30+ reviews
+- Distribution:
+<IMAGE>
+
+**Mean rating across several dimensions:**
+
+We computed the mean rating across the following dimensions. The idea is to determine if any single dimension is particularly important when it comes to prediction. If so, we can incorporate this dimension as a feature into any one of our subsequent models:
+- City: Montreal and Scottsdale have ratings; Toronto is low.
+- State: Similar results to city-cut above.
+- Is_open: Unsurprisingly, closed businesses have low ratings.
+- Business popularity bin: Unsurprisingly, popular businesses have high ratings (by definition)
+- User activity bin: We exclude users with less than 5 ratings, but of the 4 user categories, these users are the most pessimistic.
+
+<IMAGE>
+   
+# Recommendation Models
+
+## Baseline Models
+
+Before we can determine whether our more advanced recommendation algorithms are successful, we need to establish recommendation benchmarks that we hope to beat. We have three models that will provide baselines for us:
+
+**Bias Model**
+
+This model serves as our true baseline because it is the most naive approach we attempt. This model works by calculating the global mean (all user-item ratings), and then for each prediction, adding both the mean user and item ratings. 
+
+**Matrix Factorization Model**
+
+We used a model-based collaborative filtering approach. Specifically, we use our PySpark implementation from project #1.
+
+We expect this model to perform relatively well for popular businesses (i.e. those with many reviews) and prolific users (those with many reviews). Presumably, the model will be able to learn the preferences of this group of users by virtue of their high number of interactions, but we expect collaborative filtering to struggle with the cold start problem (users or businesses for which we have few or zero reviews).
+
+**Model-Based Collaborative Filtering Model**
+
+Additionally, tried a second model-based collaborative filtering technique; specifically singular value decomposition (SVD), for which we used the implementation from the Surprise Python package.
+
+We expect this model to have the same strengths and limitations as our Matrix Factorization model.
+
+## Proposed Models
+
+In this project, we aim to outperform our baseline models by trying two new techniques that were presented in the second half of the Fall 2019 semester: 
+
+- Deep-learning-based recommendation models
+- Content-based recommendation models
+
+### Deep Learning Models
+
+
+### Content-Based Model
+
+**Background:**
+
+This model leverages similarities between businesses. Specifically, we use the businesses “category” attribute. There are over 1,000 categories in the dataset, and each business can belong to multiple categories. As a result, we can create a column corresponding to every possible category, and then one-hot encode each business for each category. As a result, we end up mapping our businesses to over 1,000 dimensional space.
+
+Once map every business to high dimensional space, we can easily see the relative similarity between businesses; similar businesses will be close to one another in terms of cosine distance. At this point, it doesn’t matter whether a business has 10k reviews or zero; we can still identify similar businesses.
+
+Finally, we can map users to this same high dimensional space (based on their ratings of businesses in this high dimensional space). In theory, this should enable us to recommend new/low-popularity businesses to users based on a user’s preferences.
+
+**Motivation:**
+
+We hope to improve recommendation for new and low-popularity businesses. While our baseline collaborative filtering models appear to make strong predictions for businesses with a lot of reviews, we observe the cold start problem; poor performance for businesses with few reviews.
+
+**Rationale:**
+
+By mapping all businesses into the same high-dimensional space, we believe a content-based model will allow us to leverage similarity between businesses. In other words, if a business with a small number of reviews is similar (in terms of "business category") to a business with many reviews, we can presumably recommend the low-popularity businesses to fans of the high-popularity business. We expect our content-based model to do this effectively, thereby solving the cold-start problem for businesses.
+
+**Effectiveness:**
+
+Unfortunately, this model did not perform as well as we had hoped. This happened for two reasons. 
+Because we implemented the model from scratch, it wasn’t built in the most space-efficient manner (i.e. we ended up with a dense user-item matrix, with a prediction for every user-business pair). As a result, in order to avoid running out of memory, we limited our testing of this model to a single city, Toronto.
+Additionally, we believe there was an error in our implementation that resulted in our predictions landing on a different rating scale from 1-5. Most likely, this is because we did not normalize user-item ratings prior to vectorizing the categories (for which we used a TFIDF algorithm). 
+
+**Next steps:**
+
+The obvious next steps are to address our implementation problems, starting with the second one. We should first normalize our user-business ratings, and then uses a simple count-vectorizer (i.e. one-hot encoding rather than TFIDF) to map the businesses into high-d space. Finally, if we take the matrix product of our final predictions with the inverse document frequency, we should be able to recover recommendations on a 1-5 scale, for which we can compute RMSE and coverage.
+
+## Test and Performance of Models
+
