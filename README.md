@@ -65,8 +65,8 @@ Users:
 - Low-activity definition: 5-10 reviews
 - Medium-activity: 11-20 reviews
 - High-activity: 20+ reviews
-- Distribution:
-<IMAGE>
+- Distribution: 
+![alt text](https://github.com/ds-personalization/project-2-final-ja-oj/blob/master/Images/User%20Activity%20distribution.png)
 
 
 Businesses: 
@@ -74,7 +74,7 @@ Businesses:
 - Medium-popularity: 10-30 reviews
 - High-popularity: 30+ reviews
 - Distribution:
-<IMAGE>
+![alt text](https://github.com/ds-personalization/project-2-final-ja-oj/blob/master/Images/Business%20popularity%20distribution.png)
 
 **Mean rating across several dimensions:**
 
@@ -84,8 +84,8 @@ We computed the mean rating across the following dimensions. The idea is to dete
 - Is_open: Unsurprisingly, closed businesses have low ratings.
 - Business popularity bin: Unsurprisingly, popular businesses have high ratings (by definition)
 - User activity bin: We exclude users with less than 5 ratings, but of the 4 user categories, these users are the most pessimistic.
-
-<IMAGE>
+![alt text](https://github.com/ds-personalization/project-2-final-ja-oj/blob/master/Images/Mean%20rating%20by%20geography.png)
+![alt text](https://github.com/ds-personalization/project-2-final-ja-oj/blob/master/Images/Mean%20rating%20by%20user_business%20activity.png)
    
 # Recommendation Models
 
